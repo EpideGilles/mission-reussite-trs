@@ -1,0 +1,92 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mission Réseaux — Fibre & ADSL</title><style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#162b45;background:#f3f7fc}*{box-sizing:border-box}body{margin:0}.wrap{max-width:960px;margin:auto;padding:24px}header{background:linear-gradient(115deg,#102b53,#146c9e);color:white;padding:35px 24px;border-radius:22px}h1{font-size:clamp(26px,4vw,40px);margin:4px 0 10px}h2{font-size:21px}p{line-height:1.55}.muted{color:#53657a}.intro{color:#e2f4ff}.tag{display:inline-block;background:#ffffff25;border:1px solid #ffffff55;border-radius:99px;padding:5px 12px;font-size:13px}.panel,.question{background:white;border:1px solid #dce6f2;border-radius:16px;padding:22px;margin-top:18px;box-shadow:0 5px 18px #163f6610}.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}.buttons{display:flex;flex-wrap:wrap;gap:9px}button,.btn{border:0;background:#1767a4;color:white;border-radius:10px;padding:11px 15px;font:inherit;font-weight:650;cursor:pointer;text-decoration:none;display:inline-block}button.secondary{background:#e9f2fb;color:#17476e}button:focus-visible,input:focus-visible{outline:3px solid #f5a623;outline-offset:2px}.progress{height:12px;border-radius:99px;background:#e5edf5;overflow:hidden;margin:14px 0 6px}.progress>div{height:100%;width:0;background:#1c9d83;transition:width .2s}.qhead{display:flex;justify-content:space-between;gap:10px;align-items:center}.number{color:#1767a4;font-weight:750;font-size:13px}.answers{display:grid;gap:9px;margin:15px 0}.option{display:flex;align-items:flex-start;gap:10px;padding:13px;border:1px solid #cfdeeb;border-radius:11px;cursor:pointer}.option:hover{background:#f4f9ff}.option:has(input:checked){background:#eaf5ff;border-color:#247fc0}.option input{margin-top:4px;accent-color:#146fae}.feedback{border-left:4px solid #188c79;background:#ecfaf5;padding:13px;border-radius:9px;margin-top:14px}.feedback.error{border-color:#c67816;background:#fff7e8}.feedback p{margin:5px 0}.small{font-size:13px}.results{background:#eaf5ff;border:1px solid #a8d5f0;padding:20px;border-radius:14px;margin-top:20px}.hide{display:none}.note{background:#fff8e8;border-radius:10px;padding:12px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}.step{background:#e9f2fb;border-radius:10px;padding:10px;text-align:center;font-size:13px;font-weight:700}.step span{display:block;font-size:11px;color:#53657a;font-weight:400}.footer{padding:25px 0;color:#64768a;font-size:13px}.toggle{display:flex;gap:8px;align-items:center}@media(max-width:650px){.wrap{padding:12px}.steps{grid-template-columns:repeat(2,1fr)}.question{padding:16px}}@media print{body{background:white}.wrap{max-width:none}header{background:white;color:black;border:2px solid black}.intro{color:black}.buttons,.no-print,.option input{display:none!important}.panel,.question{box-shadow:none;break-inside:avoid}.feedback{display:none!important}}
+</style></head><body><main class="wrap"><header><span class="tag">MISSION RÉSEAUX · MODULE 1</span><h1>De la fibre à la box 📡</h1><p class="intro">15 questions pour découvrir comment Internet arrive jusqu'à la maison. Ici, on apprend : on a le droit de chercher et de se tromper.</p><div class="steps"><div class="step">1. Découvrir<span>Je lis la question</span></div><div class="step">2. Réfléchir<span>Je choisis une réponse</span></div><div class="step">3. Chercher<span>Je consulte une ressource</span></div><div class="step">4. Comprendre<span>Je lis l'explication</span></div></div></header><section class="panel"><div class="toolbar"><div><strong id="counter">0 / 15 réponses</strong><div class="muted small">La progression est enregistrée sur cet appareil.</div></div><div class="buttons"><button class="secondary" id="reset">Recommencer</button><button class="secondary" onclick="window.print()">Imprimer</button></div></div><div class="progress"><div id="bar"></div></div><p class="note small"><strong>Deux façons de l'utiliser :</strong> premier passage sans aide pour voir ce que tu connais ; second passage avec le bouton « Chercher sur Internet ». Les recherches s'ouvrent dans un nouvel onglet. Tes réponses sont envoyées automatiquement à ta formatrice au moment de la correction. Le bilan reste également copiable.</p></section><div id="questions"></div><section class="panel no-print" id="fin-questionnaire"><h2>Tu as terminé les questions ?</h2><p>Vérifie tes réponses, puis clique sur le bouton ci-dessous pour afficher ton bilan et transmettre tes résultats à ta formatrice.</p><div class="buttons"><button id="check" type="button">✓ Corriger mes réponses et envoyer mon bilan</button></div></section><section id="results" class="results hide" aria-live="polite"></section><div class="footer">Support pédagogique autonome · Fibre optique, cuivre et réseaux · Les parcours sont volontairement simplifiés pour débuter.</div></main><section class="panel" id="suivi-fibre" style="max-width:1050px;margin:20px auto;padding:20px;background:#eef5ff;color:#173455;border:1px solid #adc7e5;border-radius:16px">
+<h2>📊 Suivi pédagogique (prototype)</h2>
+<p>Utiliser un identifiant fictif pour les tests. Les résultats sont envoyés lors du clic sur « Corriger mes réponses ». Vérifier leur réception dans Google Sheets.</p>
+<label style="display:block;margin:10px 0">Identifiant pédagogique <input id="trsStudent" placeholder="TEST123" style="padding:10px;width:min(100%,290px)"></label>
+<label style="display:block;margin:10px 0">URL Apps Script /exec <input id="trsEndpoint" placeholder="https://script.google.com/macros/s/.../exec" style="padding:10px;width:100%"></label>
+<button id="trsSave" type="button" style="background:#1759a8;color:#fff;padding:12px 18px;border:0;border-radius:9px;cursor:pointer">Activer le suivi</button>
+<button id="trsRetry" type="button" style="background:#e3edf7;color:#1759a8;padding:12px 18px;border:0;border-radius:9px;cursor:pointer">Retenter les envois en attente</button>
+<p id="trsStatus" role="status" style="font-weight:650">Suivi non activé sur cet appareil.</p>
+<small>Le navigateur ne peut pas confirmer la réception côté serveur. Ne pas utiliser de données nominatives pendant les tests.</small>
+</section>
+<script>
+const data=[
+['Internet arrive-t-il chez nous uniquement grâce aux satellites ?',['Oui, toujours','Non, il utilise notamment des réseaux terrestres et des câbles sous-marins','Oui, grâce au Wi-Fi'],1,'Internet repose sur plusieurs infrastructures interconnectées : fibre, cuivre, réseaux mobiles, câbles sous-marins et parfois satellites.','infrastructures internet cables sous marins fibre'],
+['Dans une fibre optique, comment les informations circulent-elles ?',['Grâce à la lumière',"Grâce à l’eau",'Grâce à un courant électrique'],0,'La fibre transporte des signaux lumineux qui codent les informations.','fonctionnement fibre optique lumière signal'],
+["L’ADSL utilise principalement quel type de câble ?",['Du cuivre téléphonique','De la fibre optique jusqu’à la box','Un câble HDMI'],0,"L’ADSL exploite la paire de cuivre de la ligne téléphonique.",'ADSL paire cuivre téléphone'],
+['Quelle technologie permet généralement les meilleurs débits sur une connexion fixe ?',['ADSL','FTTH (fibre jusqu’au logement)','Ligne téléphonique analogique'],1,'Le FTTH offre généralement de bien meilleurs débits que l’ADSL.','FTTH débit comparé ADSL'],
+['Que signifie FTTH ?',['Fiber To The Home','Fast Telephone To Home','Fiber Transfer Technical Hub'],0,'Fiber To The Home signifie fibre jusqu’au domicile.','FTTH définition'],
+['À quoi sert un NRO (nœud de raccordement optique) ?',["À héberger des équipements du réseau optique de l’opérateur",'À recharger la box','À alimenter les téléphones en électricité'],0,'Le NRO est un site technique d’où partent des liaisons optiques vers les zones desservies.','NRO fibre optique rôle'],
+['Que désigne le PM (point de mutualisation) ?',["Un point où les opérateurs peuvent accéder aux lignes optiques mutualisées",'Un logiciel antivirus','Une prise électrique'],0,'Le PM est un point important de l’architecture FTTH mutualisée.','point de mutualisation PM fibre'],
+['Que signifie PBO dans le raccordement fibre ?',['Point de branchement optique','Port de box ordinateur','Protection batterie optique'],0,'Le PBO est le point depuis lequel on réalise généralement le raccordement final du logement.','PBO fibre raccordement'],
+["Qu’est-ce qu’une PTO ?",['Une prise terminale optique dans le logement','Une prise téléphonique extérieure','Une antenne Wi-Fi'],0,'La PTO est la prise où se termine la fibre optique dans le logement.','PTO prise terminale optique'],
+['Dans quel ordre la fibre arrive-t-elle généralement jusqu’au particulier ?',['PTO → NRO → PBO → PM','NRO → PM → PBO → PTO','Box → PM → PTO → NRO'],1,'C’est le parcours simplifié du réseau FTTH ; des équipements intermédiaires peuvent exister.','parcours fibre NRO PM PBO PTO schéma'],
+['Une fibre peut-elle passer sous terre, sur des poteaux ou en façade ?',['Uniquement sous terre','Oui, les trois sont possibles','Uniquement dans les immeubles'],1,'Les réseaux de télécommunications empruntent différents supports physiques.','déploiement fibre aérien souterrain façade'],
+['À quoi sert une soudeuse optique ?',['À assembler deux fibres par fusion','À connecter un ordinateur en Wi-Fi','À mesurer la température'],0,'La soudeuse aligne puis fusionne les extrémités préparées de deux fibres.','soudeuse fibre optique fonctionnement'],
+['Pourquoi un technicien utilise-t-il un photomètre optique ?',['Pour mesurer la puissance lumineuse reçue','Pour photographier le chantier','Pour mesurer la tension secteur'],0,'Le photomètre mesure une puissance optique, utile pour contrôler une liaison.','photomètre optique puissance fibre'],
+['La fibre optique est-elle sensible aux perturbations électromagnétiques comme le cuivre ?',['Oui, exactement de la même manière',"Non, le signal optique n’est pas perturbé de cette façon",'Seulement la nuit'],1,"La transmission lumineuse n’est pas affectée comme un signal électrique par les interférences électromagnétiques.",'fibre optique interférences électromagnétiques'],
+['Un client signale une panne Internet. Quelle est la première bonne réaction ?',['Changer immédiatement le câble dans la rue','Vérifier les voyants, les branchements et préciser le problème','Réinitialiser toute l’installation sans vérifier'],1,'Un dépannage commence par un diagnostic méthodique.','diagnostic panne internet box voyants branchements']
+];
+const unknown=3;let store='epide_fibre_module1_v1';let answers={};try{answers=JSON.parse(localStorage.getItem(store)||'{}')||{}}catch(e){}const root=document.getElementById('questions');const escapeHTML=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function draw(){root.innerHTML=data.map((d,i)=>`<section class="question" id="q${i}"><div class="qhead"><span class="number">QUESTION ${String(i+1).padStart(2,'0')} / 15</span><span class="muted small">${i<5?'Les bases':i<10?'Les équipements':'Le métier'}</span></div><h2>${escapeHTML(d[0])}</h2><div class="answers">${[...d[1],'Je ne sais pas encore'].map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}" ${answers[i]===j?'checked':''}><span>${escapeHTML(o)}</span></label>`).join('')}</div><div class="buttons no-print"><button class="secondary" type="button" data-search="${i}">🔎 Chercher sur Internet ↗</button><button class="secondary" type="button" data-explain="${i}">💡 Comprendre cette notion</button></div><div id="feedback${i}" class="feedback hide" aria-live="polite"></div></section>`).join('');root.querySelectorAll('input').forEach(el=>el.addEventListener('change',e=>{answers[Number(e.target.name.slice(1))]=Number(e.target.value);save();progress();document.getElementById('results').classList.add('hide')}));root.querySelectorAll('[data-search]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.search);window.open('https://www.google.com/search?q='+encodeURIComponent(data[i][4]),'_blank','noopener,noreferrer')}));root.querySelectorAll('[data-explain]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.explain),f=document.getElementById('feedback'+i);f.innerHTML='<strong>À retenir :</strong> '+escapeHTML(data[i][3]);f.classList.toggle('hide')}));progress()}
+function save(){try{localStorage.setItem(store,JSON.stringify(answers))}catch(e){}}function progress(){let n=Object.keys(answers).filter(k=>Number(k)>=0&&Number(k)<data.length).length;document.getElementById('counter').textContent=n+' / 15 réponses';document.getElementById('bar').style.width=(100*n/data.length)+'%'}
+function report(){let right=0,unsure=0,wrong=0;data.forEach((d,i)=>{const a=answers[i];if(a===d[2])right++;else if(a===unknown)unsure++;else if(a!==undefined)wrong++;const f=document.getElementById('feedback'+i);f.classList.remove('hide');f.classList.toggle('error',a!==d[2]);f.innerHTML=`<strong>${a===d[2]?'✓ Bonne réponse':a===undefined?'Question non répondue':a===unknown?'À découvrir':'À revoir'}</strong><p><strong>Réponse :</strong> ${escapeHTML(d[1][d[2]])}</p><p>${escapeHTML(d[3])}</p>`});const r=document.getElementById('results');r.classList.remove('hide');r.innerHTML=`<h2>Mon bilan de découverte</h2><p><strong>${right}/15 réponses correctes</strong> · ${unsure} « Je ne sais pas encore » · ${wrong} réponses à revoir.</p><p>Ce résultat sert à choisir les notions à travailler, pas à juger ton niveau.</p><div class="buttons"><button id="copyReport">📋 Copier mon bilan pour ma formatrice</button><button class="secondary" id="backTop">Revenir au début</button></div>`;document.getElementById('copyReport').onclick=async()=>{const txt='Mission Réseaux — Partie 1\n'+`Bonnes réponses : ${right}/15 ; À découvrir : ${unsure} ; À revoir : ${wrong}\n\n`+data.map((d,i)=>`${i+1}. ${d[0]}\nMa réponse : ${answers[i]===undefined?'Non répondue':answers[i]===unknown?'Je ne sais pas encore':d[1][answers[i]]}\nCorrection : ${d[1][d[2]]}`).join('\n\n');try{await navigator.clipboard.writeText(txt);document.getElementById('copyReport').textContent='✓ Bilan copié'}catch(e){window.prompt('Copie le bilan ci-dessous :',txt)}};document.getElementById('backTop').onclick=()=>window.scrollTo({top:0,behavior:'smooth'});r.scrollIntoView({behavior:'smooth',block:'start'})}
+document.getElementById('check').onclick=()=>{report();trsSubmitFibre()};document.getElementById('reset').onclick=()=>{if(confirm('Effacer les réponses et recommencer ?')){answers={};save();sessionStorage.removeItem('trs_fibre_sent_this_run');draw();document.getElementById('results').classList.add('hide');window.scrollTo({top:0,behavior:'smooth'})}};draw();
+
+// Transmission pédagogique du quiz Fibre/ADSL : format commun avec le suivi IP/DNS/DHCP.
+const TRS_SYNC_KEY='trs_sync_v1';
+let trsSync={student:'',endpoint:'',pending:[]};
+try { trsSync=Object.assign(trsSync,JSON.parse(localStorage.getItem(TRS_SYNC_KEY)||'{}')); } catch(e){}
+function trsPersist(){try{localStorage.setItem(TRS_SYNC_KEY,JSON.stringify(trsSync))}catch(e){}}
+function trsStatus(message){document.getElementById('trsStatus').textContent=message;}
+let trsSending=false;
+async function trsFlush(){
+ if(trsSending||!trsSync.pending.length||!trsSync.endpoint)return;
+ trsSending=true;
+ try{
+  while(trsSync.pending.length){
+   await fetch(trsSync.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(trsSync.pending[0])});
+   trsSync.pending.shift();trsPersist();
+  }
+  trsStatus('Envois tentés : vérifier les nouvelles lignes dans Google Sheets. Réception non confirmable ici.');
+ }catch(e){trsStatus('Envoi interrompu : '+trsSync.pending.length+' événement(s) en attente. Cliquer sur « Retenter ».');}
+ finally{trsSending=false;}
+}
+function trsSubmitFibre(){
+ if(!trsSync.student||!trsSync.endpoint){trsStatus('Suivi non activé : le bilan reste enregistré localement.');return;}
+ if(sessionStorage.getItem('trs_fibre_sent_this_run')==='1'){
+   trsStatus('Cette série a déjà été transmise depuis cet onglet. Utilise « Recommencer » pour une nouvelle série.');return;
+ }
+ const events=data.map((d,i)=>({i,selected:answers[i],expected:d[2]})).filter(x=>x.selected!==undefined).map(x=>({
+  event:'answer',student:trsSync.student,module:'FIBRE_ADSL',lesson:1,question:x.i+1,attempt:1,
+  selected:String(x.selected),expected:String(x.expected),correct:x.selected===x.expected,version:'v2'
+ }));
+ if(!events.length){trsStatus('Aucune réponse à transmettre.');return;}
+ trsSync.pending.push(...events);trsPersist();sessionStorage.setItem('trs_fibre_sent_this_run','1');
+ trsStatus(events.length+' réponse(s) en attente d’envoi…');trsFlush();
+}
+document.getElementById('trsStudent').value=trsSync.student;
+document.getElementById('trsEndpoint').value=trsSync.endpoint;
+document.getElementById('trsSave').onclick=()=>{
+ const student=document.getElementById('trsStudent').value.trim();
+ const url=document.getElementById('trsEndpoint').value.trim();
+ if(!/^[A-Za-z0-9_-]{3,30}$/.test(student)){trsStatus('Identifiant invalide : 3 à 30 caractères, lettres/chiffres/_/- uniquement.');return;}
+ if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(url)){trsStatus('URL invalide : adresse Apps Script terminant par /exec requise.');return;}
+ trsSync.student=student;trsSync.endpoint=url;trsPersist();trsStatus('Suivi activé. Réponds aux questions puis clique sur « Corriger mes réponses ».');trsFlush();
+};
+document.getElementById('trsRetry').onclick=trsFlush;
+</script><script>
+// Une progression distincte pour chaque identifiant sur un ordinateur partagé.
+window.trsSwitchLearner = function(id) {
+  store = 'epide_fibre_module1_v1__' + id;
+  try { answers = JSON.parse(localStorage.getItem(store) || '{}') || {}; }
+  catch (e) { answers = {}; }
+  sessionStorage.removeItem('trs_fibre_sent_this_run');
+  draw();
+  document.getElementById('results').classList.add('hide');
+};
+</script>
+<script src="config_suivi.js"></script>
+<script src="suivi_volontaire.js"></script>
+</body></html>
